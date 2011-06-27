@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name          Tel-O-Fun Distance
 // @namespace     http://code.google.com/p/tel-o-fun-distance
 // @description   Enhance Tel-O-Fun with distance information
@@ -54,9 +54,9 @@ function telofun() {
   var tbl = table.snapshotItem(0);
 
   addColumn(tbl);  //column for distances
-  tbl.tBodies[0].rows[0].children[5].innerText = "מרחק";
+  tbl.tBodies[0].rows[0].children[5].innerText = "\u05de\u05e8\u05d7\u05e7 \u0028\u05de\u05f3\u0029"; //distance (m')
   addColumn(tbl);  //column for times
-  tbl.tBodies[0].rows[0].children[6].innerText = "זמן";
+  tbl.tBodies[0].rows[0].children[6].innerText = "\u05d6\u05de\u05df"; //time
 
   var nodes=document.evaluate("//table[2]/tbody/tr", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
