@@ -1,0 +1,29 @@
+The tel-o-fun website's placement of stations is probably less accurate than that of OpenStreetMap.  This process somewhat automates the correcting of the coordinates.
+
+First run:
+
+get_telofun_stations.pl > telofun_stations.csv
+
+The output is rows of station_id,latitude,longitude.
+
+Next run:
+
+get_OSM_nodes.pl > OSM_nodes.csv
+
+The output is rows of OSM_node_id,latitude,longitude.
+
+Now run:
+
+match_OSM_telofun.pl > match_OSM_telofun.csv
+
+It assumes that you have the previous two outputs in the current directory.  The output is rows of distance,OSM_node_id,station_id.
+
+Inspect match_OSM_telofun.csv visually and find the cut-off where nodes in telofun aren't yet mapped by OSM cartographers.  Currently there is a big gap between 88m and 787m.
+
+Delete the rows beyond that gap and save the new file as match_OSM_telofun_valid.csv .
+
+Now run:
+
+fix_telofun_stations.pl < match_OSM_telofun_valid.csv > telofun_stations_fixed.csv
+
+It assumes that you have telofun_stations.csv and match_OSM_telofun.csv in the current directory.  The output is rows of telofun_stations.csv with latitutudes and longitudes replaced with the results from OSM for the validated rows.
