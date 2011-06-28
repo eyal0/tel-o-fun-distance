@@ -827,7 +827,7 @@ function addColumn(tbl) {
   if(tblHeadObj) {
     for (var h=0; h<tblHeadObj.rows.length; h++) {
       var newTH = tblHeadObj.rows[h].children[0].cloneNode(true);
-      newTH.innerText = "";
+      newTH.textContent = "";
       tblHeadObj.rows[h].appendChild(newTH);
     }
   }
@@ -836,7 +836,7 @@ function addColumn(tbl) {
     var tblBodyObj = tbl.tBodies[j];
     for (var i=0; i<tblBodyObj.rows.length; i++) {
       var newCell = tblBodyObj.rows[i].children[0].cloneNode(true);
-      newCell.innerText = "";
+      newCell.textContent = "";
       tblBodyObj.rows[i].appendChild(newCell);
     }
   }
@@ -845,7 +845,7 @@ function addColumn(tbl) {
 function addRow(tbody) {
   var newRow = tbody.rows[0].cloneNode(true);
   for(var i=0; i < newRow.children.length; i++) {
-    newRow.children[i].innerText = "";
+    newRow.children[i].textContent = "";
   }
   tbody.appendChild(newRow);
 }
@@ -857,11 +857,11 @@ function telofun() {
   if(!tbl) return; //fuck it
 
   addColumn(tbl);  //column for distances
-  tbl.tBodies[0].rows[0].children[5].innerText = "\u05de\u05e8\u05d7\u05e7 \u0028\u05e7\u05de\u05f3\u0029"; //distance (km')
+  tbl.tBodies[0].rows[0].children[5].textContent = "\u05de\u05e8\u05d7\u05e7 \u0028\u05e7\u05de\u05f3\u0029"; //distance (km')
   addColumn(tbl);  //column for times
-  tbl.tBodies[0].rows[0].children[6].innerText = "\u05d6\u05de\u05df"; //time
+  tbl.tBodies[0].rows[0].children[6].textContent = "\u05d6\u05de\u05df"; //time
   addColumn(tbl);  //column for speed
-  tbl.tBodies[0].rows[0].children[7].innerText = "\u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u0028\u05e7\u05de\u05f4\u05e9\u0029"; //speed (km/s)
+  tbl.tBodies[0].rows[0].children[7].textContent = "\u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u0028\u05e7\u05de\u05f4\u05e9\u0029"; //speed (km/s)
 
   var nodes=document.evaluate("//table[2]/tbody/tr", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   var totalDistance = 0;
@@ -903,10 +903,10 @@ function telofun() {
 
   if(totalTime>0) {
     addRow(tbl.tBodies[0]); //row for totals
-    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[4].innerText = "\u05e1\u05d4\u05f4\u05db";
-    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[5].innerText = totalDistance/1000;
-    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[6].innerText = timeDiffToString(totalTime);
-    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[7].innerText = (totalDistance/totalTime*3.6).toPrecision(3);
+    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[4].textContent = "\u05e1\u05d4\u05f4\u05db";
+    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[5].textContent = totalDistance/1000;
+    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[6].textContent = timeDiffToString(totalTime);
+    tbl.tBodies[0].rows[tbl.tBodies[0].rows.length-1].children[7].textContent = (totalDistance/totalTime*3.6).toPrecision(3);
   }
 };
 
